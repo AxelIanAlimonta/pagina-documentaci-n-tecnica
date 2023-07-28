@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="shortcut icon" href="favicon.png" type="image/x-icon">
+    <title>Programación en C</title>
+  </head>
+  <body>
+    <nav id="navbar">
+      <header>Programación en C</header>
+      <a class="nav-link" href="#Introduccion">Introduccion</a>
+      <a class="nav-link" href="#Palabras_reservadas">Palabras reservadas</a>
+      <a class="nav-link" href="#Identificadores">Identificadores</a>
+      <a class="nav-link" href="#Tipos_de_Datos">Tipos de Datos</a>
+      <a class="nav-link" href="#Modificadores_de_tipo"
+        >Modificadores de tipo</a
+      >
+      <a class="nav-link" href="#Declaracion_de_variables_y_alcance"
+        >Declaracion de variables y alcance</a
+      >
+      <a class="nav-link" href="#Operadores_aritmeticos"
+        >Operadores aritmeticos</a
+      >
+      <a class="nav-link" href="#Operadores_relacionales_y_logicos"
+        >Operadores relacionales y logicos</a
+      >
+      <a class="nav-link" href="#Operador_asignacion">Operador asignacion</a>
+      <a class="nav-link" href="#Operador_sizeof">Operador sizeof</a>
+      <a class="nav-link" href="#Conversion_automatica_de_tipos_de_datos"
+        >Conversion automatica de tipos de datos</a
+      >
+      <a class="nav-link" href="#Referencia">Referencia</a>
+    </nav>
+    <main id="main-doc">
+      <section class="main-section" id="Introduccion">
+        <header>Introduccion</header>
+        <p>
+          El lenguaje de programación C fue creado por Brian Kernighan y Dennis
+          Ritchie a mediados de los años 70. La primera implementación del mismo
+          la realizó Dennis Ritchie sobre un computador DEC PDP-11 con sistema
+          operativo UNIX. C es el resultado de un proceso de desarrollo que
+          comenzó con un lenguaje anterior, el BCPL, el cual influyó en el
+          desarrollo por parte de Ken Thompson de un lenguaje llamado B, el cual
+          es el antecedente directo del lenguaje C. El lenguaje C es un lenguaje
+          para programadores en el sentido de que proporciona una gran
+          flexibilidad de programación y una muy baja comprobación de
+          incorrecciones, de forma que el lenguaje deja bajo la responsabilidad
+          del programador acciones que otros lenguajes realizan por si mismos.
+          Así, por ejemplo, C no comprueba que el índice de referencia de un
+          vector (llamado array en la literatura informática) no sobrepase el
+          tamaño del mismo; que no se escriba en zonas de memoria que no
+          pertenecen al área de datos del programa, etc.
+        </p>
+        <p>
+          El lenguaje C es un lenguaje estructurado, en el mismo sentido que lo
+          son otros lenguajes de programación tales como el lenguaje Pascal, el
+          Ada o el Modula-2, pero no es estructurado por bloques, o sea, no es
+          posible declarar subrutinas (pequeños trozos de programa) dentro de
+          otras subrutinas, a diferencia de como sucede con otros lenguajes
+          estructurados tales como el Pascal.
+        </p>
+        <p>
+          Todo programa de C consta, básicamente, de un conjunto de funciones, y
+          una función llamada main, la cual es la primera que se ejecuta al
+          comenzar el programa, llamándose desde ella al resto de funciones que
+          compongan nuestro programa.
+        </p>
+      </section>
+      <section class="main-section" id="Palabras_reservadas">
+        <header>Palabras reservadas</header>
+        <p>
+          El lenguaje C posee un número reducido de palabras reservadas (tan
+          solo 32) que define el standard ANSI-C. Estas palabras reservadas son
+          las siguientes:
+        </p>
+        <ul>
+          <li>auto</li>
+          <li>break</li>
+          <li>case</li>
+          <li>char</li>
+          <li>const</li>
+          <li>continue</li>
+          <li>default</li>
+          <li>do</li>
+          <li>double</li>
+          <li>else</li>
+          <li>enum</li>
+          <li>extern</li>
+          <li>for</li>
+          <li>goto</li>
+          <li>if</li>
+          <li>int</li>
+          <li>long</li>
+          <li>register</li>
+          <li>return</li>
+          <li>short</li>
+          <li>signed</li>
+          <li>sizeof</li>
+          <li>static</li>
+          <li>struct</li>
+          <li>switch</li>
+          <li>typedef</li>
+          <li>union</li>
+          <li>unsigned</li>
+          <li>void</li>
+          <li>volatile</li>
+          <li>while</li>
+        </ul>
+      </section>
+      <section class="main-section" id="Identificadores">
+        <header>Identificadores</header>
+        <p>
+          Antes de proceder a explicar los identificadores en C, es necesario
+          resaltar que C es un lenguaje sensible al contexto, a diferencia por
+          ejemplo de Pascal, por lo cual, C diferencia entre mayúsculas y
+          minúsculas, y por tanto, diferencia entre una palabra escrita total o
+          parcialmente en mayúsculas y otra escrita completamente en minúsculas.
+          En el lenguaje C, un identificador es cualquier palabra no reservada
+          que comience por una letra o por un subrayado, pudiendo contener en su
+          interior letras, números y subrayados. La longitud máxima de un
+          identificador depende del compilador que se este usando, pero,
+          generalmente, suelen ser de 32 caracteres, ignorándose todos aquellos
+          caracteres que compongan el identificador y sobrepasen la longitud
+          máxima. Recuérdese, además, que al ser C sensible al contexto, un
+          identificador escrito como esto_es_un_ident y otra vez como
+          Esto_Es_Un_Ident será interpretado como dos identificadores
+          completamente distintos.
+        </p>
+      </section>
+      <section class="main-section" id="Tipos_de_Datos">
+        <header>Tipos de Datos</header>
+        <p>
+          En C, toda variable, antes de poder ser usada, debe ser declarada,
+          especificando con ello el tipo de dato que almacenara. Toda variable
+          en C se declara de la forma:
+        </p>
+        <pre>
+&lt;tipo de dato&gt; &lt;nombre de variable&gt; [, nombre de variable];
+        </pre>
+        <p class="text_tabla">
+          En C existen cinco tipos de datos según puede verse en la tabla
+          siguiente:
+        </p>
+        <table>
+          <thead>
+            <tr>
+              <th>Tipo de dato</th>
+              <th>Descripción</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>int</td>
+              <td>Número entero</td>
+            </tr>
+            <tr>
+              <td>float</td>
+              <td>Punto flotante</td>
+            </tr>
+            <tr>
+              <td>double</td>
+              <td>Punto flotante (mayor rango que float)</td>
+            </tr>
+            <tr>
+              <td>char</td>
+              <td>Caracter o número pequeño(byte)</td>
+            </tr>
+            <tr>
+              <td>void</td>
+              <td>Sin tipo (uso especial)</td>
+            </tr>
+          </tbody>
+        </table>
+        <p>Algunos ejemplos de variables de C serían:</p>
+        <pre>
+                <code>
+float a;
+int b,c;
+char caracter,otro_caracter;
+                </code>
+            </pre>
+      </section>
+      <section class="main-section" id="Modificadores_de_tipo">
+        <header>Modificadores de tipo</header>
+        <p>
+          Existen, además, cuatro modificadores de tipo, los cuales se aplican
+          sobre los tipos de datos anteriormente citados. Los modificadores de
+          tipo permiten cambiar el tamaño, etc., de los tipos de datos
+          anteriormente especificados. Estos modificadores, que sintácticamente
+          anteceden a la declaración del tipo de dato, son:
+        </p>
+        <table>
+          <thead>
+            <tr>
+              <th>Modificador</th>
+              <th>Tipos de actuación</th>
+              <th>Descripción</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>signed</td>
+              <td>char int</td>
+              <td>Con signo (por defecto)</td>
+            </tr>
+            <tr>
+              <td>unsigned</td>
+              <td>char int</td>
+              <td>Sin signo</td>
+            </tr>
+            <tr>
+              <td>long</td>
+              <td>int double</td>
+              <td>Largo</td>
+            </tr>
+            <tr>
+              <td>short</td>
+              <td>int</td>
+              <td>int</td>
+            </tr>
+          </tbody>
+        </table>
+        <p>Es por ello, que podemos declarar variables como:</p>
+        <pre>
+            <code>
+unsigned char a;
+long double b;
+short int i;
+                
+            </code>
+        </pre>
+      </section>
+      <section class="main-section" id="Declaracion_de_variables_y_alcance">
+        <header>Declaracion de variables y alcance</header>
+        <p>
+          En C, las variables pueden ser declaradas en cuatro lugares del módulo
+          del programa:
+        </p>
+        <ul>
+          <li>
+            Fuera de todas las funciones del programa, son las llamadas
+            variables globales, accesibles desde cualquier parte del programa.
+          </li>
+          <li>
+            Dentro de una función, son las llamadas variables locales,
+            accesibles tan solo por la función en las que se declaran.
+          </li>
+          <li>
+            Como parámetros a la función, accesibles de igual forma que si se
+            declararan dentro de la función.
+          </li>
+          <li>
+            Dentro de un bloque de código del programa, accesible tan solo
+            dentro del bloque donde se declara. Esta forma de declaración puede
+            interpretarse como una variable local del bloque donde se declara.
+          </li>
+        </ul>
+        <p>
+          Para un mejor comprensión, veamos un pequeño programa de C con
+          variables declaradas de las cuatro formas posibles:
+        </p>
+        <pre class="codigo-grande">
+            <code>
+#include &lt;stdio.h&gt;
+  int sum; /* Variable global, accesible desde cualquier parte */
+   /* del programa*/
+  void suma(int x) /* Variable local declarada como parámetro, */
+   /* accesible solo por la función suma*/
+  {
+   sum=sum+x;
+   return;
+  }
+  void intercambio(int *a,int *b)
+  {
+   if (*a>*b)
+   {
+   int inter; /* Variable local, accesible solo dentro del */
+   /* bloque donde se declara*/
+   inter=*a;
+   *a=*b;
+   *b=inter;
+   }
+   return;
+  }
+  int main(void) /*Función principal del programa*/
+  {
+   int contador,a=9,b=0; /*Variables locales, accesibles solo */
+   /* por main*/
+   sum=0;
+   intercambio(&a,&b);
+   for(contador=a;contador<=b;contador++) suma(contador);
+   printf(“%d\n”,suma);
+   return(0);
+  }           
+            </code>
+        </pre>
+      </section>
+      <section class="main-section" id="Operadores_aritmeticos">
+        <header>Operadores aritmeticos</header>
+        <p>
+          Los operadores aritméticos existentes en C son, ordenados de mayor a
+          menor precedencia:
+        </p>
+        <table class="tabla-operadores">
+          <tr>
+            <td>++</td>
+            <td>Incremento</td>
+          </tr>
+          <tr>
+            <td>--</td>
+            <td>Decremento</td>
+          </tr>
+        </table>
+        <table class="tabla-operadores">
+          <tr>
+            <td>-</td>
+            <td>Menos unario</td>
+          </tr>
+        </table>
+        <table class="tabla-operadores">
+          <tr>
+            <td>-</td>
+            <td>Menos unario</td>
+          </tr>
+          <tr>
+            <td>*</td>
+            <td>Multiplicación</td>
+          </tr>
+          <tr>
+            <td>/</td>
+            <td>Division</td>
+          </tr>
+        </table>
+        <table class="tabla-operadores">
+          <tr>
+            <td>%</td>
+            <td>Modulo</td>
+          </tr>
+          <tr>
+            <td>+</td>
+            <td>Suma</td>
+          </tr>
+          <tr>
+            <td>-</td>
+            <td>Resta</td>
+          </tr>
+        </table>
+
+        <p>
+          Los operadores ++, -- y % solo pueden usarse con datos de tipo int o
+          char. El operador incremento (++), incrementa en una unidad el valor
+          de la variable sobre la que se aplica, el operador decremento (--),
+          decrementa en una unidad el valor de la variable, y el operador módulo
+          (%), calcula el resto de una división de dos variables de tipo entero
+          o carácter.
+        </p>
+        <p>
+          Un aspecto que conviene explicar es el hecho de que los operadores
+          incremento y decremento pueden preceder o posceder a su operando, lo
+          cual permite escribir, si x es una variable de tipo int, las
+          expresiones ++x o x++. Usado de forma aislada no presenta ninguna
+          diferencia, sin embargo, cuando se usa en una expresión existe una
+          diferencia en el orden de ejecución del mismo. Cuando el operador
+          incremento (o decremento) precede al operando, C primero realiza el
+          incremento (o decremento), y después usa el valor del operando,
+          realizándose la operación al contrario si el operador poscede al
+          operando. Así, considérense el siguiente código de un programa:
+        </p>
+        <pre>
+              <code>
+int var1=10,var2;
+var2=++var1; /* Pone 11 en var2, pues primero incrementa var1,*/
+            /* y luego asigna su valor a var2 */
+              </code>
+            </pre>
+        <p>Mientras que el siguiente código funciona de forma distinta:</p>
+        <pre>
+              <code>
+int var1=10,var2;
+var2=var1++; /* Pone 10 en var2, pues primero asigna su valor */
+             /* a var2, y luego incrementa var1 */
+              </code>
+            </pre>
+      </section>
+      <section class="main-section" id="Operadores_relacionales_y_logicos">
+        <header>Operadores relacionales y logicos</header>
+        <p>
+          Los operadores relaciónales y lógicos de C, ordenados de mayor a menor
+          prioridad son:
+        </p>
+        <table class="tabla-operadores">
+          <tr>
+            <td>!</td>
+            <td>Not</td>
+          </tr>
+        </table>
+        <table class="tabla-operadores">
+          <tr>
+            <td>></td>
+            <td>Mayor que</td>
+          </tr>
+          <tr>
+            <td>>=</td>
+            <td>Mayor o igual que</td>
+          </tr>
+          <tr>
+            <td><</td>
+            <td>Menor que</td>
+          </tr>
+          <tr>
+            <td><=</td>
+            <td>Menor o igual que</td>
+          </tr>
+        </table>
+        <table class="tabla-operadores">
+          <tr>
+            <td>==</td>
+            <td>Igual</td>
+          </tr>
+          <tr>
+            <td>!=</td>
+            <td>No igual</td>
+          </tr>
+        </table>
+        <table class="tabla-operadores">
+          <tr>
+            <td>&&</td>
+            <td>And</td>
+          </tr>
+        </table>
+        <table class="tabla-operadores">
+          <tr>
+            <td>||</td>
+            <td>Or</td>
+          </tr>
+        </table>
+        <p>
+          Los operadores relaciónales y lógicos tiene menor prioridad que los
+          operadores aritméticos antes descritos, así , escribir 10>3+9 es
+          equivalente a escribir 10>(3+9).
+        </p>
+      </section>
+      <section class="main-section" id="Operador_asignacion">
+        <header>Operador asignacion</header>
+        <p>
+          El lenguaje C, a diferencia de otros lenguajes tales como Pascal, no
+          diferencia la asignación de cualquier otro operador del lenguaje. Para
+          C, la asignación es un operador, el llamado operador asignación (=),
+          el cual posee la prioridad más baja de todos los operadores. Es por
+          ello que en C podemos escribir expresiones del tipo:
+        </p>
+        <pre>
+          <code>
+if ((c=a*b)&lt;0) /* if es la comprobación condicional de C, que */
+               /* se vera con posterioridad */
+          </code>
+        </pre>
+        <p>
+          Esta expresión asigna a la variable c el valor de a*b y devuelve su
+          valor para compararlo con el valor constante 0. Los paréntesis son
+          necesarios pues el operador asignación tiene la prioridad mas baja de
+          todos los operadores.
+        </p>
+      </section>
+      <section class="main-section" id="Operador_sizeof">
+        <header>Operador sizeof</header>
+        <p>
+          El operador sizeof es un operador en tiempo de compilación. El
+          operador sizeof devuelve el tamaño de una variable o tipo de dato
+          durante la compilación, no durante la ejecución del programa. Veamos
+          algunos ejemplos:
+        </p>
+        <p>
+          sizeof(int) devuelve el valor 2 en los sistemas operativos de 16 bits
+          y 4 en los de 32 bits.
+        </p>
+        <p>
+          Si tenemos char a[20], sizeof(a) devuelve el valor 20, y si tenemos
+          float a[6], sizeof(a) devuelve el valor 24 (4*6).
+        </p>
+      </section>
+      <section
+        class="main-section"
+        id="Conversion_automatica_de_tipos_de_datos"
+      >
+        <header>Conversion automatica de tipos de datos</header>
+        <p>
+          El lenguaje C permite que en una misma expresión aparezcan diferentes
+          tipos de datos, encargándose el compilador de realizar las operaciones
+          de forma correcta. El compilador del lenguaje C, cuando en una misma
+          expresión aparecen dos o más tipos de datos, convierte todos los
+          operandos al tipo del operando más grande existente de acuerdo con las
+          dos reglas siguientes:
+        </p>
+        <ul>
+          <li>
+            Todos los char y short int se convierten a int. Todos los float a
+            double
+          </li>
+          <li>
+            Para todo par de operandos, lo siguiente ocurre en secuencia:
+            <ul>
+              <li>
+                Si uno de los operandos es un long double, el otro se convierte
+                en long double.
+              </li>
+              <li>
+                Si uno de los operandos es double, el otro se convierte a
+                double.
+              </li>
+              <li>
+                Si uno de los operandos es long, el otro se convierte a long
+              </li>
+              <li>
+                Si uno de los operandos es unsigned, el otro se convierte a
+                unsigned
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </section>
+      <section class="main-section" id="Referencia">
+        <header>Referencia</header>
+        <p>Toda la información de esta página fue sacada de <a href="https://informatica.uv.es/estguia/ATD/apuntes/laboratorio/Lenguaje-C.pdf">aquí.</a></p>
+      </section>
+    </main>
+  </body>
+</html>
